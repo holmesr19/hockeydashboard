@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRosterResponse } from '../interfaces';
+import { IRoster } from '../interfaces';
 import { RosterService } from 'src/app/roster/roster.service';
 
 @Component({
@@ -8,12 +8,13 @@ import { RosterService } from 'src/app/roster/roster.service';
   styleUrls: ['./roster.component.scss']
 })
 export class RosterComponent implements OnInit {
-rosterResponse: IRosterResponse;
+roster: IRoster;
   constructor(private rosterService: RosterService) {}
 
   ngOnInit() {
     this.rosterService.getRoster('12')
-    .subscribe((data) => this.rosterResponse = data);
+    .subscribe((data) => this.roster = data);
+    console.log(this.roster);
   }
 
 }

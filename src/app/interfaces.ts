@@ -1,9 +1,10 @@
-export interface IRosterResponse {
+export interface IRoster {
     copyright: string;
-    roster: [IRoster];
+    roster: [IPlayer];
+    link: string;
 }
 
-export interface IRoster {
+export interface IPlayer {
     person: IPerson;
     jerseyNumber: string;
     position: IPosition;
