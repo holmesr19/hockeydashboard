@@ -1,7 +1,10 @@
 export interface IRoster {
-    copyright: string;
-    roster: [IPlayer];
-    link: string;
+    players: [{
+        playerName: string;
+        number: string;
+        position: string;
+        link: string;
+    }];
 }
 
 export interface IPlayer {
