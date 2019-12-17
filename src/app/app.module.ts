@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { RosterComponent } from './roster/roster.component';
 import { RosterService } from 'src/app/roster/roster.service';
 import {HttpClientModule} from '@angular/common/http';
+import { SvechnikovComponent } from './svechnikov/svechnikov.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RosterComponent
+    RosterComponent,
+    SvechnikovComponent
   ],
   imports: [
     BrowserModule,

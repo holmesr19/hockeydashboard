@@ -12,9 +12,10 @@ roster: IRoster;
   constructor(private rosterService: RosterService) {}
 
   ngOnInit() {
+    console.log('in component');
     this.rosterService.getRoster('12')
-    .subscribe((data) => this.roster = data);
-    console.log(this.roster);
+    .subscribe((data) => {this.roster = data;
+                          console.log(this.roster); });
   }
 
 }
