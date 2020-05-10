@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IRoster } from '../interfaces';
-import { RosterService } from 'src/app/roster/roster.service';
+import { RosterService } from 'src/app/services/roster.service';
+import { TeamRoster } from 'src/app/interfaces/TeamRoster';
+import { Team } from 'src/app/interfaces/Team';
 
 @Component({
   selector: 'app-roster',
@@ -8,7 +9,9 @@ import { RosterService } from 'src/app/roster/roster.service';
   styleUrls: ['./roster.component.scss']
 })
 export class RosterComponent implements OnInit {
-roster: IRoster;
+  team: Team;
+  roster: TeamRoster;
+
   constructor(private rosterService: RosterService) {}
 
   ngOnInit() {

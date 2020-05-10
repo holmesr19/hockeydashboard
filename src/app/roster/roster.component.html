@@ -1,3 +1,10 @@
 
-
-<span></span>
+<h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-label>Choose your team</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let team of teams" [value]="team.id">
+      {{team.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
