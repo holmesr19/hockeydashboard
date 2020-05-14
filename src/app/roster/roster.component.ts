@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RosterService } from 'src/app/services/roster.service';
 import { TeamRoster } from 'src/app/interfaces/TeamRoster';
 import { Team } from 'src/app/interfaces/Team';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-roster',
@@ -9,16 +11,17 @@ import { Team } from 'src/app/interfaces/Team';
   styleUrls: ['./roster.component.scss']
 })
 export class RosterComponent implements OnInit {
-  team: Team;
+  teams: Team[];
   roster: TeamRoster;
-
-  constructor(private rosterService: RosterService) {}
+  // teamControl = new FormControl('', Validators.required);
+  constructor(private rosterService: RosterService,
+              public fb: FormBuilder) {}
 
   ngOnInit() {
     console.log('in component');
-    this.rosterService.getRoster('12')
-    .subscribe((data) => {this.roster = data;
-                          console.log(this.roster); });
+    this.rosterService.getTeams()
+    .subscribe((data) => this.teams = data );
+    console.log(this.teams);
   }
 
 }
