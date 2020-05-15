@@ -1,5 +1,8 @@
-
-<h4>I wasted way too much time on this</h4>
-  <div *ngFor="let team of teams">
-    {{team.name}}
-  </div>
+  <h4>Select Team</h4>
+  <mat-form-field>
+    <mat-select>
+      <mat-option *ngFor="let team of teams" [value] = "team.name">
+        {{team.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

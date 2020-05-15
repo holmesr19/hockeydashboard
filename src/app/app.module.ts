@@ -8,7 +8,7 @@ import { RosterService } from 'src/app/services/roster.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
-import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule,
+    FormsModule,
     // FormControl,
     // Validators,
     ReactiveFormsModule
