@@ -40,9 +40,13 @@ getRoster(teamID: string): Observable<Player[]> {
 }
 
 private transformToTeams(data: TeamRes): Team[] {
-    console.log('data:' );
     console.log(data.teams);
     return data.teams;
+  }
+
+  private transformToRoster(data: TeamRoster): Player[] {
+    console.log(data.roster);
+    return data.roster;
   }
 
 

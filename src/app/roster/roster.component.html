@@ -1,8 +1,20 @@
-  <h4>Select Team</h4>
-  <mat-form-field>
-    <mat-select>
-      <mat-option *ngFor="let team of teams" [value] = "team.name">
-        {{team.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- <h4>Select Team</h4> -->
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Select team" [(value)] = "selectedTeam" (selectionChange)="getRoster($event.value)">
+        <mat-option *ngFor="let team of teams" [value] = "team.id">
+          {{team.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Select player" [(value)] = "selectedPlayer" (selectionChange)="getProfile($event.value)">
+        <mat-option *ngFor="let player of players" [value] = "player.person.id">
+          {{ player.person.fullName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
