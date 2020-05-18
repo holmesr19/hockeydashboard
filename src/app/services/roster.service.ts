@@ -7,48 +7,39 @@ import { map } from 'rxjs/operators';
 import { Player } from 'src/app/interfaces/Player';
 import { Team } from 'src/app/interfaces/Team';
 import { TeamRes } from 'src/app/interfaces/teamres';
+import { Person } from 'src/app/interfaces/Person';
+import { PersonRes } from 'src/app/interfaces/PersonRes';
+import { PersonExtended } from 'src/app/interfaces/PersonExtended';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RosterService {
 
-  constructor(private httpClient: HttpClient) { }
+constructor(private httpClient: HttpClient) { }
 
 getTeams(): Observable<Team[]> {
-  console.log(this.httpClient.get<TeamRes>(
-    `https://statsapi.web.nhl.com/api/v1/teams/`
-    ).pipe(
-      map(data =>
-        this.transformToTeams(data)
-      )
-    ));
-
   return this.httpClient.get<TeamRes>(
   `https://statsapi.web.nhl.com/api/v1/teams/`
-  ).pipe(
-    map(data =>
-      this.transformToTeams(data)
-    )
+  ).pipe(map(data => this.transformToTeams(data))
   );
-
 }
+
 getRoster(teamID: string): Observable<Player[]> {
   return this.httpClient.get<TeamRoster>(
   `https://statsapi.web.nhl.com/api/v1/teams/` + `${teamID}` + `/roster`
   ).pipe(map(data => data.roster));
 }
 
+getPlayer(playerId: string): Observable<PersonExtended> {
+  return this.httpClient.get<PersonRes>(
+  `https://statsapi.web.nhl.com/api/v1/people/` + `${playerId}`
+  ).pipe(map(data => data.people[0]));
+}
+
 private transformToTeams(data: TeamRes): Team[] {
-    console.log(data.teams);
     return data.teams;
   }
-
-  private transformToRoster(data: TeamRoster): Player[] {
-    console.log(data.roster);
-    return data.roster;
-  }
-
 
 // // this is where i'm at in the book
 // private transformToIRoster(response: ICurrentRoster ): IRoster {

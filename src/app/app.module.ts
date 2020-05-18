@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,7 @@ import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angu
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    // FormControl,
-    // Validators,
+    MatCardModule,
     ReactiveFormsModule
   ],
   providers: [RosterService],

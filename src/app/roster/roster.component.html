@@ -1,4 +1,5 @@
-  <!-- <h4>Select Team</h4> -->
+  <!-- looks like garbage on a phone screen, move style into css sheet -->
+<mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
   <div>
     <mat-form-field>
       <mat-select placeholder="Select team" [(value)] = "selectedTeam" (selectionChange)="getRoster($event.value)">
@@ -18,3 +19,17 @@
       </mat-select>
     </mat-form-field>
   </div>
+</mat-card>
+
+<div *ngIf = "showPlayerCards">
+<mat-card class = "mat-elevation-z8">
+  <mat-card-title>{{ playerProfile.fullName }} </mat-card-title>
+  <mat-card-subtitle>
+    {{ playerProfile.primaryPosition.name }},  #{{ playerProfile.primaryNumber }}
+  </mat-card-subtitle>
+  <mat-card-content>
+    Birthdate: {{ playerProfile.birthDate | date }} - {{ playerProfile.currentAge }} years old <br>
+    {{ playerProfile.height }}, {{ playerProfile.weight }} lbs <br>
+  </mat-card-content>
+</mat-card>
+</div>

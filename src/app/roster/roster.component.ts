@@ -6,6 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Player } from 'src/app/interfaces/Player';
 import { Person } from 'src/app/interfaces/Person';
+import { PersonExtended } from 'src/app/interfaces/PersonExtended';
 
 @Component({
   selector: 'app-roster',
@@ -15,22 +16,30 @@ import { Person } from 'src/app/interfaces/Person';
 export class RosterComponent implements OnInit {
   teams: Team[];
   players: Player[];
+  showPlayerCards: boolean;
   person: Person;
   selectedTeam: string;
-  selectedPlayer: string;
+  selectedPlayer: Player;
+  playerProfile: PersonExtended;
 
   constructor(private rosterService: RosterService,
               public fb: FormBuilder) {}
 
   ngOnInit() {
+    this.showPlayerCards = false;
     this.rosterService.getTeams()
     .subscribe((data) => this.teams = data );
-    console.log(this.teams);
   }
 
   getRoster(value: string) {
+    this.showPlayerCards = false;
     this.rosterService.getRoster(value)
     .subscribe((data) => this.players = data );
-    console.log(this.players);
+  }
+
+  getProfile(value: string) {
+    this.rosterService.getPlayer(value)
+    .subscribe((data) => this.playerProfile = data );
+    this.showPlayerCards = true;
   }
 }
