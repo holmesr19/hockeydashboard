@@ -10,11 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RosterComponent
+    RosterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,13 @@
   </mat-card-subtitle>
   <mat-card-content>
     Birthdate: {{ playerProfile.birthDate | date }} - {{ playerProfile.currentAge }} years old <br>
+    Birthplace: {{ playerProfile.birthCity }}, {{ playerProfile.birthStateProvince }}, {{ playerProfile.birthCountry }} <br>
     {{ playerProfile.height }}, {{ playerProfile.weight }} lbs <br>
   </mat-card-content>
 </mat-card>
+
+<!-- <mat-card class = "mat-elevation-z8">
+  <mat-card-title>Personal Stats</mat-card-title>
+Leaving this for now - need to figure out how to get all active years for a player
+</mat-card> -->
 </div>

@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Player } from 'src/app/interfaces/Player';
 import { Team } from 'src/app/interfaces/Team';
-import { TeamRes } from 'src/app/interfaces/teamres';
+import { TeamRes } from 'src/app/interfaces/TeamRes';
 import { Person } from 'src/app/interfaces/Person';
 import { PersonRes } from 'src/app/interfaces/PersonRes';
 import { PersonExtended } from 'src/app/interfaces/PersonExtended';
