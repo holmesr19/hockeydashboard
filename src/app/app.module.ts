@@ -7,10 +7,11 @@ import { RosterComponent } from './roster/roster.component';
 import { RosterService } from 'src/app/services/roster.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatButtonModule } from '@angular/material';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './header/header.component';
+import { MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { HeaderComponent } from './header/header.component';
     MatSelectModule,
     FormsModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [RosterService],
   bootstrap: [AppComponent]

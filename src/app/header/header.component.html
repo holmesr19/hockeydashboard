@@ -1,1 +1,27 @@
-<a routerLink="/roster-component" routerLinkActive="active">Roster Component</a>
+<button mat-button [matMenuTriggerFor]="players">Players</button>
+<button mat-button [matMenuTriggerFor]="teams">Teams</button>
+<button mat-button [matMenuTriggerFor]="games">Games</button>
+<button mat-button [matMenuTriggerFor]="viz">Visualize</button>
+<mat-menu #players="matMenu">
+  <button mat-menu-item routerLink="/roster-component" routerLinkActive="active">Player Biographical Info</button>
+  <button mat-menu-item routerLink="/player-stats-component" routerLinkActive="active">Current Player Stats</button>
+  <button mat-menu-item routerLink="/historical-player-component" routerLinkActive="active">Historical Player Stats</button>
+</mat-menu>
+<mat-menu #teams="matMenu">
+    <button mat-menu-item routerLink="/team-component" routerLinkActive="active">Team Info</button>
+    <button mat-menu-item routerLink="/team-stats-component" routerLinkActive="active">Current Team Stats</button>
+    <button mat-menu-item routerLink="/historical-team-stats-component" routerLinkActive="active">Historical Team Stats</button>
+    <button mat-menu-item routerLink="/standings-component" routerLinkActive="active">Standings</button>
+</mat-menu>
+<mat-menu #games="matMenu">
+    <button mat-menu-item routerLink="/daily-games-component" routerLinkActive="active">Today's Games</button>
+    <button mat-menu-item routerLink="/team-game-component" routerLinkActive="active">Games By Team</button>
+    <button mat-menu-item routerLink="/date-game-component" routerLinkActive="active">Games By Date</button>
+    <button mat-menu-item routerLink="/box-scores-component" routerLinkActive="active">Box Scores</button>
+</mat-menu>
+<mat-menu #viz="matMenu">
+    <button mat-menu-item routerLink="/game-viz-component" routerLinkActive="active">Visualize Games</button>
+    <button mat-menu-item routerLink="/player-viz-component" routerLinkActive="active">Compare Players</button>
+</mat-menu>
+<!-- 
+<a routerLink="/roster-component" routerLinkActive="active">Roster Component</a> -->
