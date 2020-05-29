@@ -12,12 +12,24 @@ import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angu
 import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './header/header.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { HistoricalplayersComponent } from './historicalplayers/historicalplayers.component';
+import { HistoricalteamsComponent } from './historicalteams/historicalteams.component';
+import { CurrentteamsComponent } from './currentteams/currentteams.component';
+import { TodaysgamesComponent } from './todaysgames/todaysgames.component';
+import { FindgamesComponent } from './findgames/findgames.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RosterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HistoricalplayersComponent,
+    HistoricalteamsComponent,
+    CurrentteamsComponent,
+    TodaysgamesComponent,
+    FindgamesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
