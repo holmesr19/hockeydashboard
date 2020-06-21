@@ -37,7 +37,7 @@
     {{ playerProfile.primaryPosition.name }},  #{{ playerProfile.primaryNumber }}
   </mat-card-subtitle>
   <mat-card-content>
-    Birthdate: {{ playerProfile.birthDate | date }} - {{ playerProfile.currentAge }} years old <br>
+    Birthdate: {{ playerProfile.birthdate | date }} - {{ playerProfile.currentAge }} years old <br>
     Birthplace: {{ playerProfile.birthCity }}, {{ playerProfile.birthStateProvince }}, {{ playerProfile.birthCountry }} <br>
     {{ playerProfile.height }}, {{ playerProfile.weight }} lbs <br>
     <div *ngFor="let year of yearlyStats">{{year.season.substr(0, 4)}} - {{year.season.substr(6, 8)}}, {{year.team.name}} ({{year.league.name}})
