@@ -1,27 +1,33 @@
-# Hockey Dashboard
+# Hockey Analytics Dashboards 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+This began as a project to write a simple page that used as service to get data from an API and display it, just so I could get my feet wet with 
+the Angular framework and CLI, Typescript, and Angular services. As I got more comfortable with both the tech I was using and the NHL API that 
+I get my data from, I decided to start expanding and letting my features creep a little. I've tried to add desired, easy to use festures that let
+the seasoned analyst and the casual hockey fan find enjoyable parts of the site. I know there's a lot of work to be done, but I'm trying to deliver 
+functionality as fast as possible while I learn this technology.
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:5000/`. The app will automatically reload if you change any of the source files.
+### Players
+#### Current
 
-## Code scaffolding
+#### Historical
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Teams
+#### Current
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Historical
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Games
+#### Today's Games
 
-## Running end-to-end tests
+#### Search for Games
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+# Tech Specs
+HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS free-tier 
+EC2 with Ubuntu Server 20.04 OS and nginx 1.17.10.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
