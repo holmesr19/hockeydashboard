@@ -1,4 +1,28 @@
 <mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
-        <div>Discussion of personal experience, motivations, and usage of the site. Also includes a log of
-            the tech used, data sources, and upcoming improvements such as viz and more sophisticated models.</div>
-    </mat-card>
+        
+    <h1>About the Project</h1>
+    <h3>Purpose</h3>
+    <div>   This site lets users browse data and content from the NHL website. My goal is for casual hockey fans, professional analysts, and journalists
+        to have a single resource for information by making accurate data and visualizations available to the community
+        I believe that all hockey fans should have a reference in increasingly data-driven discussions. 
+    </div>
+    <div>   For the casual fan, I am also looking to make use of the content available through the NHL API to bring
+        (nearly) live updates and highlights to the site. As a part of that, I'd like to make highlight videos searchable, so that
+        users could quickly and easily pull up their favorite highlights, even if they've been buried by time.  
+    </div>
+    <h3>Tech Specs</h3>
+    <div>   Hockeydashboards.net is an Angular 8 frontend that reaches back to the NHL's website for data and content. There has been 
+        discussion of exploring the use of the ESPN API for player photos, but that is yet to materialize. It's run on an AWS EC2 instance
+        with Ubuntu Sever 20.04 and nginx. Once all the pages are up and running with their services retreiving the right data, I'm going
+        to move on to add visualizations using D3.js. I wanted to include that in the first iteration of the site, but it looked like that
+        would really hamper the speed that I could get an MVP out, so I decided it was best to put it off.
+    </div>
+    <h3>About the Developer</h3>
+    <div>   This site was planned and developed by Bancks Holmes, a software developer and Carolina Hurricanes fan currently working for 
+        M&amp;T Bank in Delaware. He started this site as a way to explore the capabilities of the technologies that he was exposed to at
+        work and also get the opportunity to practice statistical methods that could be applied to areas of study outside the hockey rink.
+            Bancks studied Computer Science and Classics and is fascinated by the topics that lie at the confluence of those fields, such
+        as Linguistics, Sociology, and Digital Humanities. More projects and a resume can be found at his <a href="https://github.com/holmesr19"> github</a>
+        and a personal site is in the works at the moment.
+    </div>
+</mat-card>

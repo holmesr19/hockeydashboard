@@ -1,5 +1,6 @@
   <!-- looks like garbage on a phone screen, move style into css sheet -->
 <mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
+  <div>View career stats for any current NHL player</div>
   <div>
     <mat-form-field>
       <mat-select placeholder="Select team" [(value)] = "selectedTeam" (selectionChange)="getRoster($event.value)">
@@ -19,7 +20,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
+<!--   <div>
       <mat-form-field>
         <mat-select placeholder="Select season (league)" [(value)] = "selectedSeason" (selectionChange)="showMoreStats($event.value)">
           <mat-option *ngFor="let year of yearlyStats" [value] = "year.season">
@@ -27,7 +28,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
+    </div> -->
 </mat-card>
 
 <div *ngIf = "showPlayerCards">
@@ -52,9 +53,10 @@
     
   </mat-card-content>
 </mat-card>
-<mat-card>
+<!-- <mat-card>
     <mat-card-title>Visualization </mat-card-title>
-    <!-- Create a div where the graph will take place -->
+
+This is useless
       <svg id="line"></svg>
       <script src="https://d3js.org/d3.v4.js">
       // good resource https://www.tutorialspoint.com/d3js/d3js_quick_guide.htm
@@ -76,7 +78,7 @@
           .attr('fill', 'none');
           </script>
 </mat-card>
-
+ -->
 <!-- <mat-card class = "mat-elevation-z8">
   <mat-card-title>Personal Stats</mat-card-title>
 Leaving this for now - need to figure out how to get all active years for a player
