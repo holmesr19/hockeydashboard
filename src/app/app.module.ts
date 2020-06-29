@@ -7,7 +7,7 @@ import { RosterComponent } from './roster/roster.component';
 import { RosterService } from 'src/app/services/roster.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatSelectModule, MatButtonModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatButtonModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,9 @@ import { CurrentteamsComponent } from './currentteams/currentteams.component';
 import { TodaysgamesComponent } from './todaysgames/todaysgames.component';
 import { FindgamesComponent } from './findgames/findgames.component';
 import { AboutComponent } from './about/about.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { AboutComponent } from './about/about.component';
     MatCardModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,      // <----- import(must)
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [RosterService],
   bootstrap: [AppComponent]

@@ -27,7 +27,7 @@ functionality as fast as possible while I learn this technology.
 
 
 # Tech Specs
-HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS free-tier 
+HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS 
 EC2 with Ubuntu Server 20.04 OS and nginx 1.17.10.
 
 
