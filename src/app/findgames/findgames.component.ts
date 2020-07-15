@@ -32,7 +32,7 @@ export class FindgamesComponent implements OnInit {
 
   getGames(value: string) {
     // TODO: add a button that triggers this & display the response (also subscribe etc)
-    this.gamesService.getGames(this.formatDate(this.startDate), this.formatDate(this.endDate));
+    // this.gamesService.getGames(this.formatDate(this.startDate), this.formatDate(this.endDate));
   }
 
   formatDate(date: Date): string {

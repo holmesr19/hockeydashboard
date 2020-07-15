@@ -12,7 +12,7 @@ import { GamesRes } from 'src/app/interfaces/Game/GamesRes';
 export class GamesService {
 
   constructor(private httpClient: HttpClient) { }
-
+/*
   getGames(start: string, end: string): Observable<GameSummary[]> {
     return this.httpClient.get<GamesRes>(
     `https://statsapi.web.nhl.com/api/v1/schedule?startDate=` + `${start}` + `&endDate=` + `${end}`)
@@ -26,5 +26,5 @@ export class GamesService {
       games.push(element.games);
     });
     return games;
-  }
+  }*/
 }
