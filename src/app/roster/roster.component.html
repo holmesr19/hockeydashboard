@@ -32,24 +32,45 @@
 </mat-card>
 
 <div *ngIf = "showPlayerCards">
+  
 <mat-card class = "mat-elevation-z8">
+    
   <mat-card-title>{{ playerProfile.fullName }} </mat-card-title>
   <mat-card-subtitle>
     {{ playerProfile.primaryPosition.name }},  #{{ playerProfile.primaryNumber }}
   </mat-card-subtitle>
   <mat-card-content>
-    Birthdate: {{ playerProfile.birthdate | date }} - {{ playerProfile.currentAge }} years old <br>
+    <div class='player-bio' >
+    {{ playerProfile.currentAge }} years old <br>
     Birthplace: {{ playerProfile.birthCity }}, {{ playerProfile.birthStateProvince }}, {{ playerProfile.birthCountry }} <br>
     {{ playerProfile.height }}, {{ playerProfile.weight }} lbs <br>
-    <div *ngFor="let year of yearlyStats">{{year.season.substr(0, 4)}} - {{year.season.substr(6, 8)}}, {{year.team.name}} ({{year.league.name}})
-    <div>Assists: {{year.stat.assists}}</div>
-    <div>Goals: {{year.stat.goals}}</div>
-    <div>Points: {{year.stat.points}}</div>
-    <div>Games: {{year.stat.games}}</div>
-    <div>PPG: {{year.stat.points / year.stat.games}}</div>
-    <div>Penalty Minutes: {{year.stat.penaltyMinutes}}</div>
-    <div></div>
     </div>
+    <table>
+      <thead>
+        <tr>
+          <td class='table-head'>Year</td>
+          <td class='table-head'>Team</td>
+          <td class='table-head'>League</td>
+          <td class='table-head'>Games</td>
+          <td class='table-head'>Assists</td>
+          <td class='table-head'>Goals</td>
+          <td class='table-head'>Points</td>
+          <td class='table-head'>PPG</td>
+          <td class='table-head'>Penalty Minutes</td>
+        </tr>
+      </thead>
+    <tr *ngFor="let year of yearlyStats">
+      <td>{{year.season.substr(0, 4)}} - {{year.season.substr(6, 8)}}</td>
+      <td>{{year.team.name}}</td>
+      <td>{{year.league.name}}</td>
+      <td>{{year.stat.games}}</td>
+      <td>{{year.stat.assists}}</td>
+      <td>{{year.stat.goals}}</td>
+      <td>{{year.stat.points}}</td>
+      <td>{{year.stat.points / year.stat.games | number:'1.2-2' }}</td>
+      <td>{{year.stat.penaltyMinutes}}</td>
+    </tr>
+    </table>
     
   </mat-card-content>
 </mat-card>

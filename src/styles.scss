@@ -9,3 +9,20 @@ path {
     stroke: #777;
     shape-rendering: crispEdges;
     }
+
+body{
+    background-color: azure;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-head{
+    background-color: blanchedalmond;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+td {
+    border-bottom: 1px solid #ddd;
+  }

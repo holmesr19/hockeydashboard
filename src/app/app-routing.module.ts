@@ -7,6 +7,7 @@ import { HistoricalteamsComponent } from 'src/app/historicalteams/historicalteam
 import { TodaysgamesComponent } from 'src/app/todaysgames/todaysgames.component';
 import { FindgamesComponent } from 'src/app/findgames/findgames.component';
 import { AboutComponent } from 'src/app/about/about.component';
+import { LandingPageComponent } from 'src/app/landing-page/landing-page.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'HistoricalTeams', component: HistoricalteamsComponent},
   { path: 'TodaysGames', component: TodaysgamesComponent},
   { path: 'FindGames', component: FindgamesComponent},
-  { path: 'About', component: AboutComponent}
+  { path: 'About', component: AboutComponent},
+  { path: '', component: LandingPageComponent}
 ];
 
 @NgModule({

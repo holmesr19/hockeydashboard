@@ -19,6 +19,8 @@ import { TodaysgamesComponent } from './todaysgames/todaysgames.component';
 import { FindgamesComponent } from './findgames/findgames.component';
 import { AboutComponent } from './about/about.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -32,7 +34,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     CurrentteamsComponent,
     TodaysgamesComponent,
     FindgamesComponent,
-    AboutComponent
+    AboutComponent,
+    LandingPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
