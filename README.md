@@ -10,21 +10,24 @@ functionality as fast as possible while I learn this technology.
 
 ### Players
 #### Current
+Lets the user view player data for all players currently on NHL rosters
 
 #### Historical
-
+Allows the user to reference information for players that are no longer in the league, going back to 1916
 
 ### Teams
 #### Current
+Search for team stats and rankings for the current season
 
 #### Historical
-
+Query for team stats & rankings in a specified season
 
 ### Games
 #### Today's Games
+Highlights today's matchups
 
 #### Search for Games
-
+Lets the user find highlights and summaries from past games and information about future games.
 
 # Tech Specs
 HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS 
