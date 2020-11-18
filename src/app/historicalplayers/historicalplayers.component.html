@@ -1,3 +1,33 @@
-<mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
-    <div>filter for info, stats and standings of former nhl players</div>
-</mat-card>
+  <!-- looks like garbage on a phone screen, move style into css sheet -->
+  <mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
+        <div>View career stats for any current NHL player</div>
+        <div>
+            <mat-form-field>
+                <mat-select placeholder="Select season" [(value)] = "selectedSeason" (selectionChange)="getTeams($event.value)">
+                <mat-option *ngFor="let year of years" [value] = "year">
+                    {{year.substr(0, 4)}} - {{year.substr(4, 8)}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div> 
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Select team" [(value)] = "selectedTeam" (selectionChange)="getRoster(selectedSeason, $event.value)">
+              <mat-option *ngFor="let team of teams" [value] = "team.id">
+                {{team.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Select player" [(value)] = "selectedPlayer" (selectionChange)="getProfile($event.value)">
+              <mat-option *ngFor="let player of players" [value] = "player.person.id">
+                {{ player.person.fullName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card>
+      
