@@ -28,7 +28,6 @@ export class HistoricalplayersComponent implements OnInit {
     this.showPlayerCards = false;
     this.playerService.getYears()
     .subscribe((data) => this.years = data );
-    console.log(this.years);
   }
 
   getTeams(year: string) {
@@ -42,7 +41,6 @@ export class HistoricalplayersComponent implements OnInit {
     this.showPlayerCards = false;
     this.playerService.getRoster(year, teamId)
     .subscribe((data) => this.players = data );
-    console.log(this.players);
   }
 
   getProfile(playerId: string, year: string) {

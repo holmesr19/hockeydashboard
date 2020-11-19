@@ -37,9 +37,9 @@ export class HistoricalPlayerService {
   }
 
   getRoster(year: string, teamId: string): Observable<Player[]> {
-    return this.httpClient.get<TeamRoster>(
+    return this.httpClient.get<any>(
       `https://statsapi.web.nhl.com/api/v1/teams/` + `${teamId}` + `?expand=team.roster&season=` + `${year}`
-    ).pipe(map(data => data.roster));
+    ).pipe(map(data => data.teams[0].roster.roster));
   }
 
   getPlayer(playerId: string): Observable<PersonExtended> {
