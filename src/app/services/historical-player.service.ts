@@ -44,11 +44,13 @@ export class HistoricalPlayerService {
 
   getPlayer(playerId: string): Observable<PersonExtended> {
     return this.httpClient.get<PersonRes>(
-      `https://statsapi.web.nhl.com/api/v1/` + `${playerId}`
+      `https://statsapi.web.nhl.com/api/v1/people/` + `${playerId}`
     ).pipe(map(data => data.people[0]));
   }
 
-  getYearlyData(playerId: string, year: string): Observable<PlayerStats> {
-
+  getYearlyData(playerId: string, year: string): Observable<StatsObj[]> {
+  return this.httpClient.get<any>(
+    `https://statsapi.web.nhl.com/api/v1/people/` + `${playerId}` + `/stats?stats=yearByYear`
+  ).pipe(map(data => data.stats[0].splits));
   }
 }

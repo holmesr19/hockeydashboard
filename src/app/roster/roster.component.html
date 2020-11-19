@@ -35,15 +35,15 @@
   
 <mat-card class = "mat-elevation-z8">
     
-  <mat-card-title>{{ playerProfile.fullName }} </mat-card-title>
+  <mat-card-title>{{ playerProfile?.fullName }} </mat-card-title>
   <mat-card-subtitle>
-    {{ playerProfile.primaryPosition.name }},  #{{ playerProfile.primaryNumber }}
+    {{ playerProfile?.primaryPosition.name }},  #{{ playerProfile?.primaryNumber }}
   </mat-card-subtitle>
   <mat-card-content>
     <div class='player-bio' >
-    {{ playerProfile.currentAge }} years old <br>
-    Birthplace: {{ playerProfile.birthCity }}, {{ playerProfile.birthStateProvince }}, {{ playerProfile.birthCountry }} <br>
-    {{ playerProfile.height }}, {{ playerProfile.weight }} lbs <br>
+    {{ playerProfile?.currentAge }} years old <br>
+    Birthplace: {{ playerProfile?.birthCity }}, {{ playerProfile?.birthStateProvince }}, {{ playerProfile?.birthCountry }} <br>
+    {{ playerProfile?.height }}, {{ playerProfile?.weight }} lbs <br>
     </div>
     <table>
       <thead>

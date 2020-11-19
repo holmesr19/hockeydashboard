@@ -18,6 +18,7 @@ export class HistoricalplayersComponent implements OnInit {
   players: Player[];
   showPlayerCards: boolean;
   selectedTeam: IdName;
+  selectedPlayer: IdName;
   playerProfile: PersonExtended;
   yearlyStats: StatsObj[];
 
@@ -31,13 +32,16 @@ export class HistoricalplayersComponent implements OnInit {
   }
 
   getTeams(year: string) {
+    this.players = [];
     this.showPlayerCards = false;
     this.selectedTeam = {id: 0 , name: ''};
+    this.selectedPlayer = {id: 0 , name: ''};
     this.playerService.getTeams(year)
     .subscribe((data) => this.teams = data );
   }
 
   getRoster(year: string, teamId: string) {
+    this.selectedPlayer = {id: 0 , name: ''};
     this.showPlayerCards = false;
     this.playerService.getRoster(year, teamId)
     .subscribe((data) => this.players = data );

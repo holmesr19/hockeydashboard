@@ -30,4 +30,80 @@
           </mat-form-field>
         </div>
       </mat-card>
+
+
+<div *ngIf = "showPlayerCards">
+  
+        <mat-card class = "mat-elevation-z8">
+            
+          <mat-card-title>{{ playerProfile?.fullName }} </mat-card-title>
+          <mat-card-subtitle>
+            {{ playerProfile?.primaryPosition.name }},  #{{ playerProfile?.primaryNumber }}
+          </mat-card-subtitle>
+          <mat-card-content>
+            <div class='player-bio' >
+            {{ playerProfile?.currentAge }} years old <br>
+            Birthplace: {{ playerProfile?.birthCity }}, {{ playerProfile?.birthStateProvince }}, {{ playerProfile?.birthCountry }} <br>
+            {{ playerProfile?.height }}, {{ playerProfile?.weight }} lbs <br>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <td class='table-head'>Year</td>
+                  <td class='table-head'>Team</td>
+                  <td class='table-head'>League</td>
+                  <td class='table-head'>Games</td>
+                  <td class='table-head'>Assists</td>
+                  <td class='table-head'>Goals</td>
+                  <td class='table-head'>Points</td>
+                  <td class='table-head'>PPG</td>
+                  <td class='table-head'>Penalty Minutes</td>
+                </tr>
+              </thead>
+            <tr *ngFor="let year of yearlyStats">
+              <td>{{year.season.substr(0, 4)}} - {{year.season.substr(6, 8)}}</td>
+              <td>{{year.team.name}}</td>
+              <td>{{year.league.name}}</td>
+              <td>{{year.stat.games}}</td>
+              <td>{{year.stat.assists}}</td>
+              <td>{{year.stat.goals}}</td>
+              <td>{{year.stat.points}}</td>
+              <td>{{year.stat.points / year.stat.games | number:'1.2-2' }}</td>
+              <td>{{year.stat.penaltyMinutes}}</td>
+            </tr>
+            </table>
+            
+          </mat-card-content>
+        </mat-card>
+        <!--
+            <mat-card-title>Visualization </mat-card-title>
+        
+        This is useless
+              <svg id="line"></svg>
+              <script src="https://d3js.org/d3.v4.js">
+              // good resource https://www.tutorialspoint.com/d3js/d3js_quick_guide.htm
+                      // create data
+                var data = [{x: 0, y: 20}, {x: 150, y: 150}, {x: 300, y: 100}, {x: 450, y: 20}, {x: 600, y: 130}]
+        
+                // create svg element:
+                var svg = d3.select("#line").append("svg").attr("width", 800).attr("height", 200)
+        
+                // prepare a helper function
+                var lineFunc = d3.line()
+                  .x(function(d) { return d.x })
+                  .y(function(d) { return d.y })
+        
+                // Add the path using this helper function
+                svg.append('path')
+                  .attr('d', lineFunc(data))
+                  .attr('stroke', 'black')
+                  .attr('fill', 'none');
+                  </script>
+        </mat-card>
+         -->
+        <!-- <mat-card class = "mat-elevation-z8">
+          <mat-card-title>Personal Stats</mat-card-title>
+        Leaving this for now - need to figure out how to get all active years for a player
+        </mat-card> -->
+        </div>
       
