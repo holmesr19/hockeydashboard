@@ -1,6 +1,6 @@
   <!-- looks like garbage on a phone screen, move style into css sheet -->
   <mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
-        <div>View career stats for any current NHL player</div>
+        <div>View career stats for any player in the NHL since 1917</div>
         <div>
             <mat-form-field>
                 <mat-select placeholder="Select season" [(value)] = "selectedSeason" (selectionChange)="getTeams($event.value)">

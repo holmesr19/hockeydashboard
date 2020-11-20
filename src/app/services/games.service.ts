@@ -12,19 +12,24 @@ import { GamesRes } from 'src/app/interfaces/Game/GamesRes';
 export class GamesService {
 
   constructor(private httpClient: HttpClient) { }
-/*
-  getGames(start: string, end: string): Observable<GameSummary[]> {
-    return this.httpClient.get<GamesRes>(
-    `https://statsapi.web.nhl.com/api/v1/schedule?startDate=` + `${start}` + `&endDate=` + `${end}`)
-    .pipe(map(data => this.transformToGames(data)));
+
+  getTodaysGames(): Observable<GameDates[]> {
+    const today = new Date();
+    const todayStr = today.getFullYear().toString() +
+    (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0');
+    console.log(todayStr);
+    return this.getGamesByDateRange(todayStr, todayStr);
   }
 
-  transformToGames(response: GamesRes): GameSummary[] {
-    const games = new Array<GameSummary>();
-    response.dates.forEach(element => {
-      console.log(element);
-      games.push(element.games);
-    });
-    return games;
-  }*/
+  getGamesByDateRange(start: string, end: string): Observable<GameDates[]> {
+    return this.httpClient.get<any>(
+      `https://statsapi.web.nhl.com/api/v1/schedule?startDate=` + `${start}` + `&endDate=` + `${end}`
+    ).pipe(map(data => data.dates));
+  }
+
+  getGameContent(gameId: string) {
+    // I think we should use this one but it doesnt have media
+    // https://statsapi.web.nhl.com/api/v1/game/1917020001/feed/live
+  }
+
 }
