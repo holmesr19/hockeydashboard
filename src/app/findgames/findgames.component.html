@@ -1,17 +1,30 @@
 <mat-card class = "mat-elevation-z8" style="width: 33%; margin-left: auto; margin-right: auto; margin-bottom: 30px;">
     <div>Search for games by date.</div>
-    <div>Team filter coming soon</div>
     <div>
+      <form [formGroup]='dateForm' (ngSubmit)='getGames(dateForm.value)'>
       <mat-form-field>
-        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date" [(ngModel)]="startDate">
+        <input matInput [matDatepicker]='startDatePicker' placeholder="Choose start date" 
+        id='startDate' formControlName='startDate'>
         <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatePicker></mat-datepicker>
       </mat-form-field>
     <mat-form-field>
-        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date" [(ngModel)]="endDate">
+        <input matInput [matDatepicker]='endDatePicker' placeholder="Choose end date" 
+        id='endDate' formControlName='endDate'>
         <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #endDatePicker></mat-datepicker>
       </mat-form-field>
-      <p>Selected range: {{startDate}} - {{endDate}}</p>
-    </div>
+    <button class='button' type='submit'>
+      Find Games
+    </button>
+  </form>
+</div>
+</mat-card>
+
+<mat-card class = "mat-elevation-z8" *ngFor='let date of gameDates'>
+  Date: {{ date.date }}
+  <div *ngFor='let game of date.games'>
+    {{game.teams.away.team.name}} vs {{game.teams.home.team.name}}
+  </div>
+
 </mat-card>

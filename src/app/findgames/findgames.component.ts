@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { GamesService } from 'src/app/services/games.service';
+import { GameDates } from 'src/app/interfaces/Game/GameDates';
 
 @Component({
   selector: 'app-findgames',
@@ -10,33 +11,38 @@ import { GamesService } from 'src/app/services/games.service';
 export class FindgamesComponent implements OnInit {
   startDate: Date;
   endDate: Date;
-  picker = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
+  gameDates: GameDates[];
+  dateForm: FormGroup;
 
-  constructor(private gamesService: GamesService) { }
+  constructor(private gamesService: GamesService,
+              private formBuilder: FormBuilder) {
+                this.dateForm = this.formBuilder.group({
+                  startDate: '',
+                  endDate: ''
+                });
+               }
 
   ngOnInit() {
-    const today = new Date();
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-    this.startDate = today;
-    this.endDate = tomorrow;
-    // console.log(today.getDate());
-    // console.log(today.getMonth() + 1);
-    // console.log(today.getFullYear());
-    console.log('start: ' + this.formatDate(this.startDate));
-    console.log('end: ' + this.formatDate(this.endDate));
+    this.gamesService.getTodaysGames()
+    .subscribe(data => this.gameDates = data);
+    console.log(this.gameDates);
   }
 
-  getGames(value: string) {
+  getGames(formData: any) {
     // TODO: add a button that triggers this & display the response (also subscribe etc)
-    // this.gamesService.getGames(this.formatDate(this.startDate), this.formatDate(this.endDate));
+    const startDateString = this.formatDate(formData.startDate);
+    const endDateString = this.formatDate(formData.endDate);
+    console.log(startDateString);
+    console.log(endDateString);
+    this.gamesService.getGamesByDateRange(startDateString, endDateString)
+    .subscribe(data => this.gameDates = data);
+    console.log(this.gameDates);
   }
 
-  formatDate(date: Date): string {
-    return date.getFullYear().toString() + '-' + (date.getMonth() + 1) + '-' + date.getDate().toString();
+  formatDate(dateStr: Date): string {
+    const date = new Date(dateStr);
+    return date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') +
+    '-' + date.getDate().toString().padStart(2, '0');
   }
 
 }

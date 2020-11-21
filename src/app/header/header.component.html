@@ -2,7 +2,7 @@
 <div>
 <button mat-button [matMenuTriggerFor]="players">Players</button>
 <button mat-button [matMenuTriggerFor]="teams">Teams</button>
-<button mat-button [matMenuTriggerFor]="games">Games</button>
+<button mat-button routerLink="/FindGames" routerLinkActive="active">Games</button>
 <button mat-button routerLink="/About" routerLinkActive="active">About</button>
 <!-- <button mat-button [matMenuTriggerFor]="viz">Visualize</button> -->
 <mat-menu #players="matMenu">
@@ -12,10 +12,6 @@
 <mat-menu #teams="matMenu">
     <button mat-menu-item routerLink="/CurrentTeams" routerLinkActive="active">Current Teams</button>
     <button mat-menu-item routerLink="/HistoricalTeams" routerLinkActive="active">Historical Teams</button>
-</mat-menu>
-<mat-menu #games="matMenu">
-    <button mat-menu-item routerLink="/TodaysGames" routerLinkActive="active">Today's Games</button>
-    <button mat-menu-item routerLink="/FindGames" routerLinkActive="active">Search for Games</button>
 </mat-menu>
 <!-- <mat-menu #viz="matMenu">
     <button mat-menu-item routerLink="/GameViz" routerLinkActive="active">Visualize Games</button>
