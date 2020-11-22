@@ -15,12 +15,13 @@ import { MatMenuModule} from '@angular/material/menu';
 import { HistoricalplayersComponent } from './historicalplayers/historicalplayers.component';
 import { HistoricalteamsComponent } from './historicalteams/historicalteams.component';
 import { CurrentteamsComponent } from './currentteams/currentteams.component';
-import { TodaysgamesComponent } from './todaysgames/todaysgames.component';
-import { FindgamesComponent } from './findgames/findgames.component';
+import { GamesComponent } from './games/games.component';
 import { AboutComponent } from './about/about.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { DatePipe } from '@angular/common';
+import { SingleGameComponent } from './single-game/single-game.component';
 
 
 
@@ -32,11 +33,11 @@ import { FooterComponent } from './footer/footer.component';
     HistoricalplayersComponent,
     HistoricalteamsComponent,
     CurrentteamsComponent,
-    TodaysgamesComponent,
-    FindgamesComponent,
+    GamesComponent,
     AboutComponent,
     LandingPageComponent,
-    FooterComponent
+    FooterComponent,
+    SingleGameComponent
   ],
   imports: [
     BrowserModule,

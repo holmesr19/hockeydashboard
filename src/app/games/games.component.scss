@@ -1,0 +1,22 @@
+.game-card {
+    margin: 15px;
+}
+
+.game-link {
+    border: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.alert-danger {
+    border: 1px;
+    color: rgb(250, 111, 134);
+    background-color: rgb(255, 245, 246);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(250, 111, 134);
+    margin-bottom: 10px;
+}

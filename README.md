@@ -23,11 +23,8 @@ Search for team stats and rankings for the current season
 Query for team stats & rankings in a specified season
 
 ### Games
-#### Today's Games
-Highlights today's matchups
-
 #### Search for Games
-Lets the user find highlights and summaries from past games and information about future games.
+Lets the user find highlights and summaries from past games and see information about future games. Automatically loads today's games
 
 # Tech Specs
 HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS 

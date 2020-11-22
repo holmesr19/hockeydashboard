@@ -14,17 +14,24 @@
         <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #endDatePicker></mat-datepicker>
       </mat-form-field>
-    <button class='button' type='submit'>
+      <div *ngIf='error.isError' class='alert alert-danger'>
+        {{ error.errorMessage }}
+      </div>
+    <button mat-stroked-button class='button' type='submit'
+    [disabled]='!dateForm.valid'>
       Find Games
     </button>
   </form>
 </div>
 </mat-card>
 
-<mat-card class = "mat-elevation-z8" *ngFor='let date of gameDates'>
-  Date: {{ date.date }}
-  <div *ngFor='let game of date.games'>
-    {{game.teams.away.team.name}} vs {{game.teams.home.team.name}}
+<div *ngIf='gameDates?.length == 0 && !initialSearch'>No games for the current date range</div>
+<mat-card class = "mat-elevation-z8 game-card" *ngFor='let date of gameDates'>
+  {{ date.date }}
+  <div [routerLink]="['/GamePage', game.gamePk]" class='game-link' *ngFor='let game of date.games'>
+    {{game.teams.away.team.name}} ( {{game.teams.away.leagueRecord.wins}} - {{game.teams.away.leagueRecord.losses}}
+    <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> at 
+    {{game.teams.home.team.name}} ( {{game.teams.home.leagueRecord.wins}} - {{game.teams.home.leagueRecord.losses}} 
+    <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> 
   </div>
-
 </mat-card>

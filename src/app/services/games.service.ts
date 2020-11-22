@@ -17,7 +17,6 @@ export class GamesService {
     const today = new Date();
     const todayStr = today.getFullYear().toString() + '-' +
     (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
-    console.log(todayStr);
     return this.getGamesByDateRange(todayStr, todayStr);
   }
 

@@ -4,8 +4,7 @@ import { RosterComponent } from 'src/app/roster/roster.component';
 import { HistoricalplayersComponent } from 'src/app/historicalplayers/historicalplayers.component';
 import { CurrentteamsComponent } from 'src/app/currentteams/currentteams.component';
 import { HistoricalteamsComponent } from 'src/app/historicalteams/historicalteams.component';
-import { TodaysgamesComponent } from 'src/app/todaysgames/todaysgames.component';
-import { FindgamesComponent } from 'src/app/findgames/findgames.component';
+import { GamesComponent } from 'src/app/games/games.component';
 import { AboutComponent } from 'src/app/about/about.component';
 import { LandingPageComponent } from 'src/app/landing-page/landing-page.component';
 
@@ -15,8 +14,7 @@ const routes: Routes = [
   { path: 'HistoricalPlayers', component: HistoricalplayersComponent},
   { path: 'CurrentTeams', component: CurrentteamsComponent},
   { path: 'HistoricalTeams', component: HistoricalteamsComponent},
-  { path: 'TodaysGames', component: TodaysgamesComponent},
-  { path: 'FindGames', component: FindgamesComponent},
+  { path: 'Games', component: GamesComponent},
   { path: 'About', component: AboutComponent},
   { path: '', component: LandingPageComponent}
 ];
