@@ -1,12 +1,19 @@
-<div>
-    <table class='boxscore-table'>
+<mat-sidenav-container class='single-game-content'>
+    <mat-sidenav opened mode="side">
+    <div><button mat-flat-button (click)='triggerSummary()'>Summary</button></div>
+    <div><button mat-flat-button (click)='triggerPlayers()'>Players</button></div>
+    <div><button mat-flat-button (click)='triggerOfficials()'>Officials</button></div>
+    <div><button mat-flat-button (click)='triggerContent()'>Content</button></div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+    <table *ngIf='showSummary' class='boxscore-table'>
         <tr>
             <th></th>
             <th>
-                {{gameData.away.team.name}}
+                {{gameData?.teams.away.team.name}}
             </th>
             <th>
-                {{gameData.home.team.name}}
+                {{gameData?.teams.home.team.name}}
             </th>
         </tr>
         <tr>
@@ -14,10 +21,10 @@
                 Goals
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.goals}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.goals}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.goals}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.goals}}
             </td>
         </tr>
         <tr>
@@ -25,10 +32,10 @@
                 Penalties in Minutes
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.pim}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.pim}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.pim}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.pim}}
             </td>
         </tr>
         <tr>
@@ -36,10 +43,10 @@
                 Shots
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.shots}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.shots}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.shots}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.shots}}
             </td>
         </tr>
         <tr>
@@ -47,10 +54,10 @@
                 Power Play Percentage
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.powerPlayPercentage}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.powerPlayPercentage}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.powerPlayPercentage}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.powerPlayPercentage}}
             </td>
         </tr>
         <tr>
@@ -58,10 +65,10 @@
                 Power Play Goals
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.powerPlayGoals}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.powerPlayGoals}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.powerPlayGoals}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.powerPlayGoals}}
             </td>
         </tr>
         <tr>
@@ -69,10 +76,10 @@
                 Power Play Opportunities
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.powerPlayOpportunities}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.powerPlayOpportunities}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.powerPlayOpportunities}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.powerPlayOpportunities}}
             </td>
         </tr>
         <tr>
@@ -80,10 +87,10 @@
                 Face-Off Win Percentage
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.faceOffWinPercentage}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.faceOffWinPercentage}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.faceOffWinPercentage}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.faceOffWinPercentage}}
             </td>
         </tr>
         <tr>
@@ -91,10 +98,10 @@
                 Blocked Shots
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.blocked}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.blocked}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.blocked}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.blocked}}
             </td>
         </tr>
         <tr>
@@ -102,10 +109,10 @@
                 Takeaways
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.takeaways}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.takeaways}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.takeaways}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.takeaways}}
             </td>
         </tr>
         <tr>
@@ -113,10 +120,10 @@
                 Giveaways
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.giveaways}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.giveaways}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.giveaways}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.giveaways}}
             </td>
         </tr>
         <tr>
@@ -124,11 +131,33 @@
                 Hits
             </td>
             <td>
-                {{gameData.away.teamStats.teamSkaterStats.hits}}
+                {{gameData?.teams.away.teamStats.teamSkaterStats.hits}}
             </td>
             <td>
-                {{gameData.home.teamStats.teamSkaterStats.hits}}
+                {{gameData?.teams.home.teamStats.teamSkaterStats.hits}}
             </td>
         </tr>
     </table>
-</div>
+    <div *ngIf='showPlayers'>**player info**</div>
+    <div *ngIf='showOfficials'>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+            <tr *ngFor='let person of gameData.officials'>
+                <td>
+                    {{person.official.fullName}}
+                </td>
+                <td>
+                    {{person.officialType}}
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div *ngIf='showContent'>**content**</div>
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+

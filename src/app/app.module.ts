@@ -7,7 +7,7 @@ import { RosterComponent } from './roster/roster.component';
 import { RosterService } from 'src/app/services/roster.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatSelectModule, MatButtonModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatButtonModule, MatNativeDateModule, MatInputModule, MatSidenavModule } from '@angular/material';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './header/header.component';
@@ -56,7 +56,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatDatepickerModule,      // <----- import(must)
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   providers: [RosterService],
   bootstrap: [AppComponent]

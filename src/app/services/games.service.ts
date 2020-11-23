@@ -34,6 +34,12 @@ export class GamesService {
   getGameBoxScore(gameId: string): Observable<BoxScore> {
     return this.httpClient.get<any>(
       `https://statsapi.web.nhl.com/api/v1/game/` + `${gameId}` + `/boxscore`
-    ).pipe(map(data => data.teams));
+    );
+  }
+
+  getGameOfficials(gameId: string): Observable<BoxScore> {
+    return this.httpClient.get<any>(
+      `https://statsapi.web.nhl.com/api/v1/game/` + `${gameId}` + `/boxscore`
+    ).pipe(map(data => data.officials));
   }
 }
