@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GameDates } from 'src/app/interfaces/Game/GameDates';
 import { GameSummary } from 'src/app/interfaces/Game/GameSummary';
-import { GamesRes } from 'src/app/interfaces/Game/GamesRes';
+import { GamesRes, BoxScore } from 'src/app/interfaces/Game/GamesRes';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +31,9 @@ export class GamesService {
     // https://statsapi.web.nhl.com/api/v1/game/1917020001/feed/live
   }
 
+  getGameBoxScore(gameId: string): Observable<BoxScore> {
+    return this.httpClient.get<any>(
+      `https://statsapi.web.nhl.com/api/v1/game/` + `${gameId}` + `/boxscore`
+    ).pipe(map(data => data.teams));
+  }
 }

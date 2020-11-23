@@ -28,10 +28,11 @@
 <div *ngIf='gameDates?.length == 0 && !initialSearch'>No games for the current date range</div>
 <mat-card class = "mat-elevation-z8 game-card" *ngFor='let date of gameDates'>
   {{ date.date }}
-  <div [routerLink]="['/GamePage', game.gamePk]" class='game-link' *ngFor='let game of date.games'>
+  <div [routerLink]="['/GameDetails', game.gamePk]" routerLinkActive="active" class='game-link' *ngFor='let game of date.games'>
     {{game.teams.away.team.name}} ( {{game.teams.away.leagueRecord.wins}} - {{game.teams.away.leagueRecord.losses}}
     <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> at 
     {{game.teams.home.team.name}} ( {{game.teams.home.leagueRecord.wins}} - {{game.teams.home.leagueRecord.losses}} 
     <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> 
   </div>
 </mat-card>
+<router-outlet></router-outlet>

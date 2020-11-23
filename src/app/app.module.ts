@@ -21,7 +21,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
-import { SingleGameComponent } from './single-game/single-game.component';
+import { SingleGameComponent } from './games/single-game/single-game.component';
+import { NotFoundComponent } from './not-found-component/not-found.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -37,7 +39,8 @@ import { SingleGameComponent } from './single-game/single-game.component';
     AboutComponent,
     LandingPageComponent,
     FooterComponent,
-    SingleGameComponent
+    SingleGameComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

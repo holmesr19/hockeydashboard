@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { GamesService } from 'src/app/services/games.service';
 import { GameDates } from 'src/app/interfaces/Game/GameDates';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -17,7 +18,8 @@ export class GamesComponent implements OnInit {
   error: any = {isError: false, errorMessage: ''};
 
   constructor(private gamesService: GamesService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private router: Router) {
                 this.dateForm = this.formBuilder.group({
                   startDate: ['', [Validators.required]],
                   endDate: ['', [Validators.required]]
