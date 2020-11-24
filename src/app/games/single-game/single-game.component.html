@@ -1,7 +1,8 @@
 <mat-sidenav-container class='single-game-content'>
     <mat-sidenav opened mode="side">
     <div><button mat-flat-button (click)='triggerSummary()'>Summary</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers()'>Players</button></div>
+    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button></div>
+    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button></div>
     <div><button mat-flat-button (click)='triggerOfficials()'>Officials</button></div>
     <div><button mat-flat-button (click)='triggerContent()'>Content</button></div>
     </mat-sidenav>
@@ -138,7 +139,101 @@
             </td>
         </tr>
     </table>
-    <div *ngIf='showPlayers'>**player info**</div>
+    <div class='player-parent' *ngIf='showPlayers'>
+            <ul>
+            <li *ngFor='let player of this.selectedTeamPlayers'>
+                <button mat-flat-button [value]='player' (click)='triggerIndividualPlayerGameStats($event.value)'>{{player?.person.fullName}}</button>
+            </li>
+            </ul>
+            <div>
+            <table *ngIf='showIndividualPlayerGameStats'>
+                <tr>
+                    <td></td>
+                    <td>{{selectedPlayer?.person.fullName}}</td>
+                </tr>
+                <tr>
+                    <td>Time on Ice</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.timeOnIce}}</td>
+                </tr>
+                <tr>
+                    <td>Assists</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.assists}}</td>
+                </tr>
+                <tr>
+                    <td>Goals</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.goals}}</td>
+                </tr>
+                <tr>
+                    <td>Shots</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.shots}}</td>
+                </tr>
+                <tr>
+                    <td>Hits</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.hits}}</td>
+                </tr>
+                <tr>
+                    <td>Power Play Goals</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.powerPlayGoals}}</td>
+                </tr>
+                <tr>
+                    <td>Power Play Assists</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.powerPlayAssists}}</td>
+                </tr>
+                <tr>
+                    <td>Penalty Minutes</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.penaltyMinutes}}</td>
+                </tr>
+                <tr>
+                    <td>Face-Off Percentage</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.faceOffPct}}</td>
+                </tr>
+                <tr>
+                    <td>Face-Off Wins</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.faceOffWins}}</td>
+                </tr>
+                <tr>
+                    <td>Face-Offs Taken</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.faceoffTaken}}</td>
+                </tr>
+                <tr>
+                    <td>Takeaways</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.takeaways}}</td>
+                </tr>
+                <tr>
+                    <td>Giveaways</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.giveaways}}</td>
+                </tr>
+                <tr>
+                    <td>Short-Handed Goals</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.shortHandedGoals}}</td>
+                </tr>
+                <tr>
+                    <td>Short-Handed Assists</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.shortHandedAssists}}</td>
+                </tr>
+                <tr>
+                    <td>Shots Blocked</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.blocked}}</td>
+                </tr>
+                <tr>
+                    <td>Plus/Minus</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.plusMinus}}</td>
+                </tr>
+                <tr>
+                    <td>Even Time on Ice</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.evenTimeOnIce}}</td>
+                </tr>
+                <tr>
+                    <td>Powerplay Time on Ice</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.powerPlayTimeOnIce}}</td>
+                </tr>
+                <tr>
+                    <td>Short-Handed Time on Ice</td>
+                    <td>{{selectedPlayer?.stats.skaterStats.shortHandedTimeOnIce}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div *ngIf='showOfficials'>
         <table>
             <tr>

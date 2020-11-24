@@ -17,6 +17,9 @@ export class SingleGameComponent implements OnInit {
   showPlayers = false;
   showContent = false;
   officialData: Official[];
+  selectedTeamPlayers: any[];
+  showIndividualPlayerGameStats = false;
+  selectedPlayer: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private gameService: GamesService) { }
@@ -36,11 +39,32 @@ export class SingleGameComponent implements OnInit {
     this.showContent = false;
   }
 
-  triggerPlayers() {
+  triggerPlayers(team: string) {
     this.showSummary = false;
     this.showOfficials = false;
     this.showPlayers = true;
     this.showContent = false;
+    let selectedTeamPlayerIds = [];
+    let selectedTeam;
+    this.selectedTeamPlayers = [];
+    switch (team) {
+      case ('home'): {
+        console.log(team + 'players');
+        selectedTeam = this.gameData.teams.home;
+        selectedTeamPlayerIds = Object.getOwnPropertyNames(selectedTeam.players);
+        break;
+      }
+      case ('away'): {
+        console.log(team + 'players');
+        selectedTeam = this.gameData.teams.away;
+        selectedTeamPlayerIds = Object.getOwnPropertyNames(selectedTeam.players);
+        break;
+      }
+    }
+    selectedTeamPlayerIds.forEach(element => {
+      this.selectedTeamPlayers.push(selectedTeam.players[element]); // will be upadted
+    });
+    console.log(this.selectedTeamPlayers);
   }
 
   triggerOfficials() {
@@ -57,4 +81,11 @@ export class SingleGameComponent implements OnInit {
     this.showContent = true;
   }
 
+  triggerIndividualPlayerGameStats(player: any) {
+    console.log('should show players');
+    this.showIndividualPlayerGameStats = true;
+    this.selectedPlayer = player;
+    console.log(this.selectedPlayer);
+    console.log(player);
+}
 }

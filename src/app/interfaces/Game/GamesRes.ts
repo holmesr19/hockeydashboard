@@ -19,6 +19,7 @@ export interface BoxAwayHome {
 export interface BoxTeam {
     team: IdName;
     teamStats: TeamSkaterStats;
+    players: any[];
     goalies: number[];
     skaters: number[];
     onIce: number[];
