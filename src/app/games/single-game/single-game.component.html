@@ -141,8 +141,8 @@
     </table>
     <div class='player-parent' *ngIf='showPlayers'>
             <ul>
-            <li *ngFor='let player of this.selectedTeamPlayers'>
-                <button mat-flat-button [value]='player' (click)='triggerIndividualPlayerGameStats($event.value)'>{{player?.person.fullName}}</button>
+            <li *ngFor='let player of this.selectedTeamPlayers; let i = index'>
+                <button mat-flat-button (click)='triggerIndividualPlayerGameStats(i)'>{{player?.person.fullName}}</button>
             </li>
             </ul>
             <div>
