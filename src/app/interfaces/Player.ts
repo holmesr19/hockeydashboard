@@ -1,7 +1,8 @@
-import { Person } from 'src/app/interfaces/Person';
+import { Person } from "src/app/interfaces/Person";
+import { Position } from "./Position";
 
 export interface Player {
-    person: Person;
-    jerseyNumber: string;
-    position: Position;
+  person: Person;
+  jerseyNumber: string;
+  position: Position;
 }
