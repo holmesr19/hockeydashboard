@@ -87,5 +87,6 @@ export class SingleGameComponent implements OnInit {
   triggerIndividualPlayerGameStats(player: number) {
     this.showIndividualPlayerGameStats = true;
     this.selectedPlayer = this.selectedTeamPlayers[player];
+    console.log(this.selectedPlayer);
 }
 }
