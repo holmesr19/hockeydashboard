@@ -38,6 +38,9 @@
     {{game.teams.away.team.name}} ( {{game.teams.away.leagueRecord.wins}} - {{game.teams.away.leagueRecord.losses}} - {{game.teams.away.leagueRecord.ot}} ) 
      at 
     {{game.teams.home.team.name}} ( {{game.teams.home.leagueRecord.wins}} - {{game.teams.home.leagueRecord.losses}} - {{game.teams.home.leagueRecord.ot}} )
-  </div>
+  <span class='status'>{{game.status.abstractGameState}}
+  <span *ngIf='game.status.codedGameState>2'>:  {{game.teams.away.score}}-{{game.teams.home.score}}</span>
+  </span>
+</div>
 </mat-card>
 <router-outlet></router-outlet>
