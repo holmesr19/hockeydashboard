@@ -7,17 +7,19 @@ import { RosterComponent } from './roster/roster.component';
 import { RosterService } from 'src/app/services/roster.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// tslint:disable-next-line:max-line-length
 import { MatFormFieldModule, MatSelectModule, MatButtonModule, MatNativeDateModule, MatInputModule, MatSidenavModule } from '@angular/material';
+import { MatListModule } from '@angular/material/list';
 import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from './header/header.component';
-import { MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { HistoricalplayersComponent } from './historicalplayers/historicalplayers.component';
 import { HistoricalteamsComponent } from './historicalteams/historicalteams.component';
 import { CurrentteamsComponent } from './currentteams/currentteams.component';
 import { GamesComponent } from './games/games.component';
 import { AboutComponent } from './about/about.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
@@ -57,7 +59,8 @@ import { RouterModule } from '@angular/router';
     MatDatepickerModule,      // <----- import(must)
     MatNativeDateModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [RosterService],
   bootstrap: [AppComponent]

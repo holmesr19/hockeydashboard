@@ -17,9 +17,9 @@ export interface GameSummary {
       'teams': {
         'away': {
           'leagueRecord': {
-            'wins': number;
-            'losses': number;
-            'ot': number;
+            'wins': string;
+            'losses': string;
+            'ot': string;
             'type': string;
           },
           'score': number;
@@ -27,9 +27,9 @@ export interface GameSummary {
         },
         'home': {
           'leagueRecord': {
-            'wins': number;
-            'losses': number;
-            'ot': number;
+            'wins': string;
+            'losses': string;
+            'ot': string;
             'type': string;
           },
           'score': 2,

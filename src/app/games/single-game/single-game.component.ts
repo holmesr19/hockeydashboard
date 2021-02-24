@@ -36,7 +36,6 @@ export class SingleGameComponent implements OnInit {
     this.showSummary = true;
     this.showOfficials = false;
     this.showPlayers = false;
-    this.showContent = false;
     this.showIndividualPlayerGameStats = false;
   }
 
@@ -44,7 +43,6 @@ export class SingleGameComponent implements OnInit {
     this.showSummary = false;
     this.showOfficials = false;
     this.showPlayers = true;
-    this.showContent = false;
     this.showIndividualPlayerGameStats = false;
     let selectedTeamPlayerIds = [];
     let selectedTeam;
@@ -66,26 +64,28 @@ export class SingleGameComponent implements OnInit {
     selectedTeamPlayerIds.forEach(element => {
       this.selectedTeamPlayers.push(selectedTeam.players[element]); // will be upadted
     });
+    console.log(this.selectedTeamPlayers);
   }
 
   triggerOfficials() {
     this.showSummary = false;
     this.showOfficials = true;
     this.showPlayers = false;
-    this.showContent = false;
     this.showIndividualPlayerGameStats = false;
   }
 
   triggerContent() {
-    this.showSummary = false;
-    this.showOfficials = false;
-    this.showPlayers = false;
+    if (this.showContent === false) {
+    console.log('content');
     this.showContent = true;
-    this.showIndividualPlayerGameStats = false;
+    } else if (this.showContent === true) {
+    this.showContent = false;
+    }
   }
 
   triggerIndividualPlayerGameStats(player: number) {
     this.showIndividualPlayerGameStats = true;
     this.selectedPlayer = this.selectedTeamPlayers[player];
+    console.log(this.selectedPlayer);
 }
 }

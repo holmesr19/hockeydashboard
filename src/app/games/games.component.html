@@ -35,10 +35,12 @@
 <mat-card class = "mat-elevation-z8 game-card" *ngFor='let date of gameDates'>
   {{ date.date }}
   <div [routerLink]="['/GameDetails', game.gamePk]" routerLinkActive="active" class='game-link' *ngFor='let game of date.games'>
-    {{game.teams.away.team.name}} ( {{game.teams.away.leagueRecord.wins}} - {{game.teams.away.leagueRecord.losses}}
-    <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> at 
-    {{game.teams.home.team.name}} ( {{game.teams.home.leagueRecord.wins}} - {{game.teams.home.leagueRecord.losses}} 
-    <span>{{game.teams.away.leagueRecord.ties === 0 ? '- ' + game.teams.away.leagueRecord.ties : ''}})</span> 
-  </div>
+    {{game.teams.away.team.name}} ( {{game.teams.away.leagueRecord.wins}} - {{game.teams.away.leagueRecord.losses}} - {{game.teams.away.leagueRecord.ot}} ) 
+     at 
+    {{game.teams.home.team.name}} ( {{game.teams.home.leagueRecord.wins}} - {{game.teams.home.leagueRecord.losses}} - {{game.teams.home.leagueRecord.ot}} )
+  <span class='status'>{{game.status.abstractGameState}}
+  <span *ngIf='game.status.codedGameState>2'>:  {{game.teams.away.score}}-{{game.teams.home.score}}</span>
+  </span>
+</div>
 </mat-card>
 <router-outlet></router-outlet>

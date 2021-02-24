@@ -60,23 +60,4 @@ export class RosterService {
       return a.name.localeCompare(b.name);
     });
   }
-
-  // // this is where i'm at in the book
-  // private transformToIRoster(response: ICurrentRoster ): IRoster {
-  //   console.log(response);
-  //   // let players: new IPlayer[];
-  //   for (const i of response.roster) {
-  //     console.log(i);
-  //   }
-  //   return {
-  //     players: [
-  //       {
-  //         playerName: response.roster[0].person.fullName,
-  //         number: response.roster[0].jerseyNumber,
-  //         position: response.roster[0].position.abbreviation,
-  //         link: response.roster[0].person.link
-  //       }
-  //     ]
-  //   };
-  // }
 }

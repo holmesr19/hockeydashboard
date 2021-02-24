@@ -1,30 +1,48 @@
 # Hockey Analytics Dashboards 
 
-This began as a project to write a simple page that used as service to get data from an API and display it, just so I could get my feet wet with 
-the Angular framework and CLI, Typescript, and Angular services. As I got more comfortable with both the tech I was using and the NHL API that 
-I get my data from, I decided to start expanding and letting my features creep a little. I've tried to add desired, easy to use festures that let
-the seasoned analyst and the casual hockey fan find enjoyable parts of the site. I know there's a lot of work to be done, but I'm trying to deliver 
-functionality as fast as possible while I learn this technology.
+
 
 ## Usage
 
-### Players
+### Players (v.0.1.0 - live now)
 #### Current
 Lets the user view player data for all players currently on NHL rosters
 
 #### Historical
-Allows the user to reference information for players that are no longer in the league, going back to 1916
+Allows the user to reference information for players that are no longer in the league, going back to 1917
 
-### Teams
+#### Roadmap
+Compare and visualize player seasons, stints (team anad league), and careers
+Choose stat splits and rankings
+
+### Teams (v0.3.0)
 #### Current
 Search for team stats and rankings for the current season
 
 #### Historical
-Query for team stats & rankings in a specified season
+Search for team stats & rankings in any season going back to 1917
 
-### Games
+#### Roadmap
+Compare and visualize team seasons
+Choose stat splits and rankings
+
+### Games (v0.2.0 - currently under development)
+By default, loads games being played today. The game table on this page allows the user to navigate to a game detail page.
+
 #### Search for Games
-Lets the user find highlights and summaries from past games and see information about future games. Automatically loads today's games
+Lets the user find highlights and summaries from past games and see information about future games. 
+
+#### Roadmap
+Display content using the live game content endpoint
+Allow users to compare & visualize players's performances within a game, possibly even across different games
+
+# Style Guide
+
+# Release Process
+Create Pull Request to merge the branch with new functionality into master.
+Collate screenshots and summaries of new functionality & post those release notes on the blog.
+Deploy to the server.
+Post linking to the release notes and the site on Twitter.
 
 # Tech Specs
 HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS 

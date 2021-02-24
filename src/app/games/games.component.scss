@@ -3,12 +3,13 @@
 }
 
 .game-link {
-    border: 1px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: black;
+    border-bottom: 1px solid black;
     padding: 5px;
     margin: 5px;
+}
+
+.status{
+    float: right
 }
 
 .alert-danger {

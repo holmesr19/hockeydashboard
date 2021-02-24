@@ -1,10 +1,17 @@
 <mat-sidenav-container class='single-game-content'>
     <mat-sidenav opened mode="side">
     <div><button mat-flat-button (click)='triggerSummary()'>Summary</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button></div>
+    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button>
+    <ul>
+        <li *ngFor="let player of selectedTeamPlayers">{{player.person.fullName}}</li>
+    </ul>
+    </div>
+    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button>
+    <ul>
+        <li *ngFor="let player of selectedTeamPlayers" >{{player.person.fullName}}</li>
+    </ul>
+    </div>
     <div><button mat-flat-button (click)='triggerOfficials()'>Officials</button></div>
-    <div><button mat-flat-button (click)='triggerContent()'>Content</button></div>
     </mat-sidenav>
     <mat-sidenav-content>
     <table *ngIf='showSummary' class='boxscore-table'>
@@ -139,14 +146,9 @@
             </td>
         </tr>
     </table>
-    <div class='player-parent' *ngIf='showPlayers'>
-            <ul>
-            <li *ngFor='let player of this.selectedTeamPlayers; let i = index'>
-                <button mat-flat-button (click)='triggerIndividualPlayerGameStats(i)'>{{player?.person.fullName}}</button>
-            </li>
-            </ul>
-            <div>
-            <table *ngIf='showIndividualPlayerGameStats'>
+    <div>
+        <div>player stuff
+            <table *ngIf='showPlayers'>
                 <tr>
                     <td></td>
                     <td>{{selectedPlayer?.person.fullName}}</td>
@@ -251,8 +253,11 @@
         </table>
 
     </div>
-    <div *ngIf='showContent'>**content**</div>
 </mat-sidenav-content>
 </mat-sidenav-container>
+
+<div style='visibility:hidden' *ngIf='showContent'>**content**</div>
+
+<div style='visibility:hidden' ><button mat-flat-button (click)='triggerContent()'>Content</button></div>
 
 
