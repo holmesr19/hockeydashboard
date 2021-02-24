@@ -1,8 +1,16 @@
 <mat-sidenav-container class='single-game-content'>
     <mat-sidenav opened mode="side">
     <div><button mat-flat-button (click)='triggerSummary()'>Summary</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button></div>
+    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button>
+    <ul>
+        <li *ngFor="let player of selectedTeamPlayers">{{player.person.fullName}}</li>
+    </ul>
+    </div>
+    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button>
+    <ul>
+        <li *ngFor="let player of selectedTeamPlayers" >{{player.person.fullName}}</li>
+    </ul>
+    </div>
     <div><button mat-flat-button (click)='triggerOfficials()'>Officials</button></div>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -138,14 +146,9 @@
             </td>
         </tr>
     </table>
-    <div class='player-parent' *ngIf='showPlayers'>
-            <ul>
-            <li *ngFor='let player of this.selectedTeamPlayers; let i = index'>
-                <button mat-flat-button (click)='triggerIndividualPlayerGameStats(i)'>{{player?.person.fullName}}</button>
-            </li>
-            </ul>
-            <div>
-            <table *ngIf='showIndividualPlayerGameStats'>
+    <div>
+        <div>player stuff
+            <table *ngIf='showPlayers'>
                 <tr>
                     <td></td>
                     <td>{{selectedPlayer?.person.fullName}}</td>

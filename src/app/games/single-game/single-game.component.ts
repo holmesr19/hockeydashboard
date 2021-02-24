@@ -64,6 +64,7 @@ export class SingleGameComponent implements OnInit {
     selectedTeamPlayerIds.forEach(element => {
       this.selectedTeamPlayers.push(selectedTeam.players[element]); // will be upadted
     });
+    console.log(this.selectedTeamPlayers);
   }
 
   triggerOfficials() {

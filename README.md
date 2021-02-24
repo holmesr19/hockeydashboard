@@ -38,6 +38,12 @@ Allow users to compare & visualize players's performances within a game, possibl
 
 # Style Guide
 
+# Release Process
+Create Pull Request to merge the branch with new functionality into master.
+Collate screenshots and summaries of new functionality & post those release notes on the blog.
+Deploy to the server.
+Post linking to the release notes and the site on Twitter.
+
 # Tech Specs
 HockeyDashboards.net uses Angular 8.2 and it was generated with [Angular CLI](https://github.com/angular/angular-cli). It's currently hosted on an AWS 
 EC2 with Ubuntu Server 20.04 OS and nginx 1.17.10.
