@@ -1,17 +1,17 @@
 <mat-sidenav-container class='single-game-content'>
     <mat-sidenav opened mode="side">
-    <div><button mat-flat-button (click)='triggerSummary()'>Summary</button></div>
-    <div><button mat-flat-button (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</button>
-    <ul>
-        <li *ngFor="let player of selectedTeamPlayers">{{player.person.fullName}}</li>
-    </ul>
-    </div>
-    <div><button mat-flat-button (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</button>
-    <ul>
-        <li *ngFor="let player of selectedTeamPlayers" >{{player.person.fullName}}</li>
-    </ul>
-    </div>
-    <div><button mat-flat-button (click)='triggerOfficials()'>Officials</button></div>
+    <mat-nav-list>
+    <mat-list-item (click)='triggerSummary()'>Summary</mat-list-item>
+    <mat-list-item (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</mat-list-item>
+    <mat-nav-list>
+        <mat-list-item *ngFor="let player of selectedTeamPlayers">{{player.person.fullName}}</mat-list-item>
+    </mat-nav-list>
+    <mat-list-item (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</mat-list-item>
+    <mat-nav-list>
+        <mat-list-item *ngFor="let player of selectedTeamPlayers" >{{player.person.fullName}}</mat-list-item>
+    </mat-nav-list>
+    <mat-list-item mat-flat-button (click)='triggerOfficials()'>Officials</mat-list-item>
+    </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
     <table *ngIf='showSummary' class='boxscore-table'>
