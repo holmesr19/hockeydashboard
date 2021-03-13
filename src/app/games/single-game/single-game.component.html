@@ -4,11 +4,11 @@
     <mat-list-item (click)='triggerSummary()'>Summary</mat-list-item>
     <mat-list-item (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</mat-list-item>
     <mat-nav-list>
-        <mat-list-item *ngFor="let player of selectedTeamPlayers">{{player.person.fullName}}</mat-list-item>
+        <mat-list-item *ngFor="let player of awayTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>{{player.person.fullName}}</mat-list-item>
     </mat-nav-list>
     <mat-list-item (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</mat-list-item>
     <mat-nav-list>
-        <mat-list-item *ngFor="let player of selectedTeamPlayers" >{{player.person.fullName}}</mat-list-item>
+        <mat-list-item *ngFor="let player of homeTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>{{player.person.fullName}}</mat-list-item>
     </mat-nav-list>
     <mat-list-item mat-flat-button (click)='triggerOfficials()'>Officials</mat-list-item>
     </mat-nav-list>
@@ -147,7 +147,7 @@
         </tr>
     </table>
     <div>
-        <div>player stuff
+        <div>
             <table *ngIf='showPlayers'>
                 <tr>
                     <td></td>
