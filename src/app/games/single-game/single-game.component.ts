@@ -18,7 +18,7 @@ export class SingleGameComponent implements OnInit {
   showPlayers = false;
   showContent = false;
   officialData: Official[];
-  selectedTeamPlayers: any[];
+  selectedTeam: string;
   showIndividualPlayerGameStats = false;
   selectedPlayer: any;
   homeTeamPlayers: any[];
@@ -64,27 +64,18 @@ export class SingleGameComponent implements OnInit {
     this.showOfficials = false;
     this.showPlayers = true;
     this.showIndividualPlayerGameStats = false;
-    // let selectedTeamPlayerIds = [];
-    // let selectedTeam;
-    this.selectedTeamPlayers = [];
-/*     switch (team) {
+    this.selectedPlayer = '';
+    switch (team) {
       case ('home'): {
-        console.log(team + 'players');
-        selectedTeam = this.gameData.teams.home;
-        selectedTeamPlayerIds = Object.getOwnPropertyNames(selectedTeam.players);
-        break;
+       this.selectedTeam = 'home';
+       break;
       }
       case ('away'): {
-        console.log(team + 'players');
-        selectedTeam = this.gameData.teams.away;
-        selectedTeamPlayerIds = Object.getOwnPropertyNames(selectedTeam.players);
-        break;
+       this.selectedTeam = 'away';
+       break;
       }
     }
-    selectedTeamPlayerIds.forEach(element => {
-      this.selectedTeamPlayers.push(selectedTeam.players[element]); // will be upadted
-    });
-    console.log(this.selectedTeamPlayers); */
+    console.log(this.selectedTeam);
   }
 
   triggerOfficials() {
@@ -105,6 +96,8 @@ export class SingleGameComponent implements OnInit {
 
   triggerIndividualPlayerGameStats(player: any) {
     this.showIndividualPlayerGameStats = true;
-    this.selectedPlayer = player;
+    if (player != null) {
+      this.selectedPlayer = player;
+    }
 }
 }

@@ -3,12 +3,12 @@
     <mat-nav-list>
     <mat-list-item (click)='triggerSummary()'>Summary</mat-list-item>
     <mat-list-item (click)='triggerPlayers("away")'>{{gameData?.teams.away.team.name}} Players</mat-list-item>
-    <mat-nav-list>
-        <mat-list-item *ngFor="let player of awayTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>{{player.person.fullName}}</mat-list-item>
+    <mat-nav-list *ngIf='showPlayers && selectedTeam === "away"'>
+        <mat-list-item class='player' *ngFor="let player of awayTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>&emsp;{{player.person.fullName}}</mat-list-item>
     </mat-nav-list>
     <mat-list-item (click)='triggerPlayers("home")'>{{gameData?.teams.home.team.name}} Players</mat-list-item>
-    <mat-nav-list>
-        <mat-list-item *ngFor="let player of homeTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>{{player.person.fullName}}</mat-list-item>
+    <mat-nav-list *ngIf='showPlayers && selectedTeam === "home"'>
+        <mat-list-item class='player' *ngFor="let player of homeTeamPlayers" (click)=triggerIndividualPlayerGameStats(player)>&emsp;{{player.person.fullName}}</mat-list-item>
     </mat-nav-list>
     <mat-list-item mat-flat-button (click)='triggerOfficials()'>Officials</mat-list-item>
     </mat-nav-list>
@@ -147,8 +147,9 @@
         </tr>
     </table>
     <div>
-        <div>
-            <table *ngIf='showPlayers'>
+        <div *ngIf='showPlayers && selectedPlayer === ""'>Choose a player to see his game stats!</div>
+        <div *ngIf='showPlayers && selectedPlayer != ""'>
+            <table *ngIf='selectedPlayer?.person.primaryPosition.code != "G"'>
                 <tr>
                     <td></td>
                     <td>{{selectedPlayer?.person.fullName}}</td>
@@ -232,6 +233,60 @@
                 <tr>
                     <td>Short-Handed Time on Ice</td>
                     <td>{{selectedPlayer?.stats.skaterStats.shortHandedTimeOnIce}}</td>
+                </tr>
+            </table>
+            <table *ngIf='selectedPlayer?.person.primaryPosition.code === "G"'>
+                <tr>
+                    <td></td>
+                    <td>{{selectedPlayer?.person.fullName}}</td>
+                </tr>
+                <tr>
+                    <td>Time on Ice</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.timeOnIce}}</td>
+                </tr>
+                <tr>
+                    <td>Assists</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.assists}}</td>
+                </tr>
+                <tr>
+                    <td>Goals</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.goals}}</td>
+                </tr>
+                <tr>
+                    <td>Penalties in Minutes</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.pim}}</td>
+                </tr>
+                <tr>
+                    <td>Shots</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.shots}}</td>
+                </tr>
+                <tr>
+                    <td>Saves</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.saves}}</td>
+                </tr>
+                <tr>
+                    <td>PP Saves</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.powerPlaySaves}}</td>
+                </tr>
+                <tr>
+                    <td>SH Saves</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.shortHandedSaves}}</td>
+                </tr>
+                <tr>
+                    <td>Even Saves</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.evenSaves}}</td>
+                </tr>
+                <tr>
+                    <td>SH Shots Faced</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.shortHandedShotsAgainst}}</td>
+                </tr>
+                <tr>
+                    <td>Even Shots Saved</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.evenShotsAgainst}}</td>
+                </tr>
+                <tr>
+                    <td>PP Shots Saved</td>
+                    <td>{{selectedPlayer?.stats.goalieStats.powerPlayShotsAgainst}}</td>
                 </tr>
             </table>
         </div>
