@@ -96,8 +96,14 @@ export class SingleGameComponent implements OnInit {
 
   triggerIndividualPlayerGameStats(player: any) {
     this.showIndividualPlayerGameStats = true;
-    if (player != null) {
-      this.selectedPlayer = player;
-    }
-}
+    // if (player != null) {
+    this.selectedPlayer = '';
+    console.log(player.stats);
+    this.selectedPlayer = player;
+    // } else {
+    //   this.selectedPlayer = {person:{
+    //     fullName
+    //   }};
+    // }
+  }
 }

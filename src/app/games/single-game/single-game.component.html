@@ -13,7 +13,7 @@
     <mat-list-item mat-flat-button (click)='triggerOfficials()'>Officials</mat-list-item>
     </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class='sidenav-content'>
     <table *ngIf='showSummary' class='boxscore-table'>
         <tr>
             <th></th>
@@ -149,6 +149,7 @@
     <div>
         <div *ngIf='showPlayers && selectedPlayer === ""'>Choose a player to see his game stats!</div>
         <div *ngIf='showPlayers && selectedPlayer != ""'>
+        
             <table *ngIf='selectedPlayer?.person.primaryPosition.code != "G"'>
                 <tr>
                     <td></td>
