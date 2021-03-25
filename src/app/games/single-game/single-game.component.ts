@@ -75,7 +75,6 @@ export class SingleGameComponent implements OnInit {
        break;
       }
     }
-    console.log(this.selectedTeam);
   }
 
   triggerOfficials() {
@@ -87,7 +86,6 @@ export class SingleGameComponent implements OnInit {
 
   triggerContent() {
     if (this.showContent === false) {
-    console.log('content');
     this.showContent = true;
     } else if (this.showContent === true) {
     this.showContent = false;
@@ -96,14 +94,7 @@ export class SingleGameComponent implements OnInit {
 
   triggerIndividualPlayerGameStats(player: any) {
     this.showIndividualPlayerGameStats = true;
-    // if (player != null) {
     this.selectedPlayer = '';
-    console.log(player.stats);
     this.selectedPlayer = player;
-    // } else {
-    //   this.selectedPlayer = {person:{
-    //     fullName
-    //   }};
-    // }
   }
 }
