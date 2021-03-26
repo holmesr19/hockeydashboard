@@ -45,7 +45,7 @@
     Birthplace: {{ playerProfile?.birthCity }}, {{ playerProfile?.birthStateProvince }}, {{ playerProfile?.birthCountry }} <br>
     {{ playerProfile?.height }}, {{ playerProfile?.weight }} lbs <br>
     </div>
-    <table>
+    <table *ngIf="playerProfile?.primaryPosition.code != 'G'">
       <thead>
         <tr>
           <td class='table-head'>Year</td>
@@ -71,6 +71,39 @@
       <td>{{year.stat.penaltyMinutes}}</td>
     </tr>
     </table>
+
+    <table *ngIf="playerProfile?.primaryPosition.code === 'G'">
+        <thead>
+          <tr>
+            <td class='table-head'>Year</td>
+            <td class='table-head'>Team</td>
+            <td class='table-head'>League</td>
+            <td class='table-head'>Games</td>
+            <td class='table-head'>Save Percentage</td>
+            <td class='table-head'>Goal Against Average</td>
+            <td class='table-head'>Shots Against</td>
+            <td class='table-head'>Goals Against</td>
+            <td class='table-head'>Saves</td>
+            <td class='table-head'>Wins</td>
+            <td class='table-head'>Losses</td>
+            <td class='table-head'>Ties</td>
+          </tr>
+        </thead>
+      <tr *ngFor="let year of yearlyStats">
+        <td>{{year.season.substr(0, 4)}} - {{year.season.substr(6, 8)}}</td>
+        <td>{{year.team.name}}</td>
+        <td>{{year.league.name}}</td>
+        <td>{{year.stat.games}}</td>
+        <td>{{year.stat.savePercentage}}</td>
+        <td>{{year.stat.goalAgainstAverage}}</td>
+        <td>{{year.stat.shotsAgainst}}</td>
+        <td>{{year.stat.goalsAgainst}}</td>
+        <td>{{year.stat.saves}}</td>
+        <td>{{year.stat.wins}}</td>
+        <td>{{year.stat.losses}}</td>
+        <td>{{year.stat.ties}}</td>
+      </tr>
+      </table>
     
   </mat-card-content>
 </mat-card>

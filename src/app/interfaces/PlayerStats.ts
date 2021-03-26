@@ -22,4 +22,13 @@ export interface PlayerStats {
     plusMinus: number;
     points: number;
     shifts: number;
+    shutouts: number;
+    ties: number;
+    wins: number;
+    losses: number;
+    saves: number;
+    savePercentage: number;
+    goalAgainstAverage: number;
+    shotsAgainst: number;
+    goalsAgainst: number;
 }
