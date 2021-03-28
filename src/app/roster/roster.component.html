@@ -79,14 +79,15 @@
             <td class='table-head'>Team</td>
             <td class='table-head'>League</td>
             <td class='table-head'>Games</td>
-            <td class='table-head'>Save Percentage</td>
+            <td class='table-head'>Shutouts</td>
+            <td class='table-head'>Save &#37;</td>
             <td class='table-head'>Goal Against Average</td>
-            <td class='table-head'>Shots Against</td>
-            <td class='table-head'>Goals Against</td>
-            <td class='table-head'>Saves</td>
+            <td class='table-head'>PP Save &#37;</td>
+            <td class='table-head'>SH Save &#37;</td>
+            <td class='table-head'>Even Save &#37;</td>
             <td class='table-head'>Wins</td>
             <td class='table-head'>Losses</td>
-            <td class='table-head'>Ties</td>
+            <td class='table-head'>OTL</td>
           </tr>
         </thead>
       <tr *ngFor="let year of yearlyStats">
@@ -94,14 +95,15 @@
         <td>{{year.team.name}}</td>
         <td>{{year.league.name}}</td>
         <td>{{year.stat.games}}</td>
-        <td>{{year.stat.savePercentage}}</td>
-        <td>{{year.stat.goalAgainstAverage}}</td>
-        <td>{{year.stat.shotsAgainst}}</td>
-        <td>{{year.stat.goalsAgainst}}</td>
-        <td>{{year.stat.saves}}</td>
+        <td>{{year.stat.shutouts}}</td>
+        <td>{{year.stat.savePercentage | number : '1.2-2'}}</td>
+        <td>{{year.stat.goalAgainstAverage | number : '1.2-2'}}</td>
+        <td>{{year.stat.powerPlaySavePercentage | number : '1.2-2'}}</td>
+        <td>{{year.stat.shortHandedSavePercentage | number : '1.2-2'}}</td>
+        <td>{{year.stat.evenStrengthSavePercentage | number : '1.2-2'}}</td>
         <td>{{year.stat.wins}}</td>
         <td>{{year.stat.losses}}</td>
-        <td>{{year.stat.ties}}</td>
+        <td>{{year.stat.ot}}</td>
       </tr>
       </table>
     
