@@ -55,7 +55,11 @@
           <td class='table-head'>Assists</td>
           <td class='table-head'>Goals</td>
           <td class='table-head'>Points</td>
-          <td class='table-head'>PPG</td>
+          <td class='table-head'>PPG</td>  <!-- add these data columns, and in historical -->
+          <td class='table-head'>PP Goals</td>
+          <td class='table-head'>SH Goals</td>
+          <td class='table-head'>GWG</td>
+          <td class='table-head'>Shot &#37;</td>
           <td class='table-head'>Penalty Minutes</td>
         </tr>
       </thead>
@@ -68,6 +72,10 @@
       <td>{{year.stat.goals}}</td>
       <td>{{year.stat.points}}</td>
       <td>{{year.stat.points / year.stat.games | number:'1.2-2' }}</td>
+      <td>{{year.stat.powerPlayGoals}}</td>
+      <td>{{year.stat.shortHandedGoals}}</td>
+      <td>{{year.stat.gameWinningGoals}}</td>
+      <td>{{year.stat.shotPct}}</td>
       <td>{{year.stat.penaltyMinutes}}</td>
     </tr>
     </table>
