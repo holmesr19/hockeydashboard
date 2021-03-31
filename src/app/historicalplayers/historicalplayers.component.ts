@@ -17,6 +17,7 @@ export class HistoricalplayersComponent implements OnInit {
   teams: Team[];
   players: Player[];
   showPlayerCards: boolean;
+  selectedSeason: string;
   selectedTeam: IdName;
   selectedPlayer: IdName;
   playerProfile: PersonExtended;

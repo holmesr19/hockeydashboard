@@ -30,11 +30,13 @@ export class SingleGameComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.gameId = params.get('id');
+      
     });
     this.gameService.getGameBoxScore(this.gameId)
     .subscribe(data => {
       this.gameData = data;
       this.populatePlayers(this.gameData.teams);
+      console.log(this.gameData);
     });
   }
 

@@ -28,6 +28,11 @@ By default, loads games being played today. The game table on this page allows t
 #### Search for Games
 Find stats and summaries from past games and see information about future games. 
 
+#### Roadmap
+Display content using the live game content endpoint 
+Allow users to compare & visualize players's performances within a game, possibly even across different games
+
+
 # Style Guide for Contributors
 ### 1. Merge Material Code Only
 Only include code changes material to the functionality you're working on. If your IDE creates files or enforces certain conventions, revert them before submitting the pull request. 
