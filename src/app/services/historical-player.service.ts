@@ -48,7 +48,7 @@ export class HistoricalPlayerService {
     ).pipe(map(data => data.people[0]));
   }
 
-  getYearlyData(playerId: string, year: string): Observable<StatsObj[]> {
+  getYearlyData(playerId: string): Observable<StatsObj[]> {
   return this.httpClient.get<any>(
     `https://statsapi.web.nhl.com/api/v1/people/` + `${playerId}` + `/stats?stats=yearByYear`
   ).pipe(map(data => data.stats[0].splits));
