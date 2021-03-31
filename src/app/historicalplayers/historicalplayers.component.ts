@@ -48,11 +48,11 @@ export class HistoricalplayersComponent implements OnInit {
     .subscribe((data) => this.players = data );
   }
 
-  getProfile(playerId: string, year: string) {
+  getProfile(playerId: string) {
     this.playerService.getPlayer(playerId)
     .subscribe((data) => this.playerProfile = data );
-    this.playerService.getYearlyData(playerId, year)
-    .subscribe((data) => this.yearlyStats = data );
-    this.showPlayerCards = true;
+    // this.playerService.getYearlyData(playerId, year)
+    // .subscribe((data) => this.yearlyStats = data );
+    // this.showPlayerCards = true;
   }
 }
